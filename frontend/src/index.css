@@ -1,0 +1,223 @@
+/*
+ * index.css - Minimal styling for decision-support dashboard
+ * 
+ * Design principles:
+ * - Clarity over beauty
+ * - High contrast for quick scanning
+ * - Color-coded risk levels (red/yellow/green)
+ * - No animations or fancy effects
+ */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #f5f5f5;
+  color: #333;
+  line-height: 1.5;
+}
+
+.app {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+/* Listing selector */
+.listing-input {
+  margin-bottom: 24px;
+  padding: 16px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.listing-input label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.listing-input select {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Status card - the main attention grabber */
+.status-card {
+  padding: 20px;
+  margin-bottom: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  border-left: 6px solid;
+}
+
+.status-card.risk-high {
+  border-color: #dc3545;
+  background: #fff5f5;
+}
+
+.status-card.risk-medium {
+  border-color: #ffc107;
+  background: #fffbf0;
+}
+
+.status-card.risk-low {
+  border-color: #28a745;
+  background: #f0fff4;
+}
+
+.status-card h2 {
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+}
+
+.status-metrics {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.metric {
+  flex: 1;
+  min-width: 120px;
+}
+
+.metric-label {
+  font-size: 0.75rem;
+  color: #666;
+  text-transform: uppercase;
+}
+
+.metric-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.metric-value.high { color: #dc3545; }
+.metric-value.medium { color: #b8860b; }
+.metric-value.low { color: #28a745; }
+
+/* Aspect scorecards grid */
+.aspects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.aspect-card {
+  padding: 14px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.aspect-card h3 {
+  font-size: 0.9rem;
+  text-transform: capitalize;
+  margin-bottom: 8px;
+  color: #555;
+}
+
+.aspect-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  margin-bottom: 4px;
+}
+
+.aspect-row span:first-child {
+  color: #888;
+}
+
+.trend-improving { color: #28a745; }
+.trend-declining { color: #dc3545; }
+.trend-stable { color: #666; }
+
+/* Risk drivers - the WHY section */
+.risk-drivers {
+  padding: 16px;
+  margin-bottom: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.risk-drivers h2 {
+  font-size: 1rem;
+  margin-bottom: 12px;
+  color: #555;
+}
+
+.risk-drivers ul {
+  margin-left: 20px;
+}
+
+.risk-drivers li {
+  margin-bottom: 6px;
+  color: #444;
+}
+
+.no-drivers {
+  color: #28a745;
+  font-style: italic;
+}
+
+/* Action banner - the SO WHAT section */
+.action-banner {
+  padding: 16px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.action-banner.action-flag {
+  background: #dc3545;
+  color: white;
+}
+
+.action-banner.action-monitor {
+  background: #ffc107;
+  color: #333;
+}
+
+.action-banner.action-ignore {
+  background: #28a745;
+  color: white;
+}
+
+/* Loading and error states */
+.loading, .error {
+  padding: 40px;
+  text-align: center;
+  background: white;
+  border-radius: 8px;
+}
+
+.error {
+  color: #dc3545;
+}
+
+/* Metadata footer */
+.metadata {
+  margin-top: 20px;
+  font-size: 0.75rem;
+  color: #888;
+  text-align: center;
+}

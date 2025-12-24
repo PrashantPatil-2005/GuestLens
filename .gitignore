@@ -1,3 +1,9 @@
+# Frontend (Node.js / Vite)
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+*.local
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

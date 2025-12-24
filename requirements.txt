@@ -7,6 +7,11 @@
 # Optional: For running tests
 pytest>=7.0.0
 
+# Phase-3: API server
+fastapi>=0.104.0
+uvicorn>=0.24.0
+pydantic>=2.0.0
+
 # Optional: For development
 # mypy>=1.0.0  # Type checking
 # black>=23.0.0  # Code formatting
