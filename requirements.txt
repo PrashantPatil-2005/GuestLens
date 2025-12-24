@@ -1,0 +1,12 @@
+# Guest Review Intelligence System - Phase 1
+# Python Dependencies
+
+# No external dependencies required!
+# This project uses only Python standard library for maximum portability.
+
+# Optional: For running tests
+pytest>=7.0.0
+
+# Optional: For development
+# mypy>=1.0.0  # Type checking
+# black>=23.0.0  # Code formatting
