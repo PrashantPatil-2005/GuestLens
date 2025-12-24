@@ -2,10 +2,11 @@
 main.py - FastAPI backend for Guest Review Intelligence Dashboard
 
 Endpoints:
-- GET /listing/{listing_id} - Get Phase-2 assessment for a listing
-- GET /listings - Get available listing IDs
+- GET /api/listing/{listing_id} - Get Phase-2 assessment for a listing
+- GET /api/listings - Get available listing IDs
 
 This is a minimal decision-support API, not a full CRUD system.
+Configured for Vercel serverless deployment.
 """
 
 from fastapi import FastAPI, HTTPException
@@ -26,10 +27,10 @@ app = FastAPI(
     version="1.0.0"
 )
 
-# CORS middleware - allow React frontend to access
+# CORS middleware - allow frontend to access
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://127.0.0.1:3000"],
+    allow_origins=["*"],  # Allow all origins for Vercel deployment
     allow_credentials=True,
     allow_methods=["GET"],
     allow_headers=["*"],
@@ -37,16 +38,17 @@ app.add_middleware(
 
 
 # =============================================================================
-# ENDPOINTS
+# ENDPOINTS (with /api prefix for Vercel routing)
 # =============================================================================
 
 @app.get("/")
+@app.get("/api")
 def root():
     """Health check endpoint."""
     return {"status": "ok", "service": "Guest Review Intelligence API"}
 
 
-@app.get("/listings", response_model=List[str])
+@app.get("/api/listings", response_model=List[str])
 def list_available_listings():
     """
     Get list of available listing IDs.
@@ -59,7 +61,7 @@ def list_available_listings():
 
 
 @app.get(
-    "/listing/{listing_id}",
+    "/api/listing/{listing_id}",
     response_model=ListingAssessment,
     responses={404: {"model": ErrorResponse}}
 )

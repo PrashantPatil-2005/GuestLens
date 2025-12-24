@@ -14,7 +14,8 @@ import ActionBanner from './components/ActionBanner'
  * - Complete context without clicking around
  */
 
-const API_BASE = 'http://localhost:8000'
+// Use relative path for Vercel deployment, fallback to localhost for dev
+const API_BASE = import.meta.env.PROD ? '/api' : 'http://localhost:8000'
 
 function App() {
     const [listings, setListings] = useState([])
